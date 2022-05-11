@@ -13,6 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+BOARD_KERNEL_IMAGE_NAME := Image
 TARGET_KERNEL_PATH ?= device/google/cuttlefish_prebuilts/kernel/5.4-arm/kernel-5.4
 
 PRODUCT_COPY_FILES += $(TARGET_KERNEL_PATH):kernel

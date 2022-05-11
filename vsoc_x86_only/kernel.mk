@@ -13,6 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+BOARD_KERNEL_IMAGE_NAME := Image
 TARGET_KERNEL_USE ?= 5.10
 TARGET_KERNEL_PATH ?= device/google/cuttlefish_prebuilts/kernel/$(TARGET_KERNEL_USE)-i686/kernel-$(TARGET_KERNEL_USE)
 
