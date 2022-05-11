@@ -18,7 +18,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
 $(call inherit-product, device/google/cuttlefish/shared/auto/device.mk)
 $(call inherit-product, device/google/cuttlefish/vsoc_arm64/kernel.mk)
 
-PRODUCT_NAME := aosp_cf_arm64_auto
+# Inherit from the AcmeUI configuration.
+$(call inherit-product, vendor/acme/config/mobile.mk)
+
+PRODUCT_NAME := acme_cf_arm64_auto
 PRODUCT_DEVICE := vsoc_arm64
 PRODUCT_MANUFACTURER := Google
 PRODUCT_MODEL := Cuttlefish arm64 auto

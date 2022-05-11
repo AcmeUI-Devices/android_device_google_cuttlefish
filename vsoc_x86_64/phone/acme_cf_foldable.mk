@@ -14,9 +14,9 @@
 # limitations under the License.
 #
 
-# Inherit mostly from aosp_cf_x86_64_phone
-$(call inherit-product, device/google/cuttlefish/vsoc_x86_64/phone/aosp_cf.mk)
-PRODUCT_NAME := aosp_cf_x86_64_foldable
+# Inherit mostly from acme_cf_x86_64_phone
+$(call inherit-product, device/google/cuttlefish/vsoc_x86_64/phone/acme_cf.mk)
+PRODUCT_NAME := acme_cf_x86_64_foldable
 PRODUCT_MODEL := Cuttlefish x86_64 foldable
 
 # Include the device state configuration for a foldable device.

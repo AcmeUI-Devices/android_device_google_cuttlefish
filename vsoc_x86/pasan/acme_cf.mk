@@ -17,7 +17,6 @@
 #
 # All components inherited here go to system image (same as GSI system)
 #
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_system.mk)
 
 PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := relaxed
@@ -36,11 +35,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_product.mk)
 #
 # All components inherited here go to vendor image
 #
-LOCAL_DISABLE_OMX := true
 $(call inherit-product, device/google/cuttlefish/shared/phone/device_vendor.mk)
 
-# Nested virtualization support
-$(call inherit-product, packages/modules/Virtualization/apex/product_packages.mk)
+# Inherit from the AcmeUI configuration.
+$(call inherit-product, vendor/acme/config/mobile.mk)
 
 #
 # Special settings for the target
@@ -52,10 +50,10 @@ $(call inherit-product, device/google/cuttlefish/vsoc_x86_64/bootloader.mk)
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/aosp_excluded_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/aosp_excluded_hardware.xml
 
-PRODUCT_NAME := aosp_cf_x86_64_only_phone
-PRODUCT_DEVICE := vsoc_x86_64_only
+PRODUCT_NAME := acme_cf_x86_pasan
+PRODUCT_DEVICE := vsoc_x86
 PRODUCT_MANUFACTURER := Google
-PRODUCT_MODEL := Cuttlefish x86_64 phone 64-bit only
+PRODUCT_MODEL := Cuttlefish x86 phone
 
 PRODUCT_VENDOR_PROPERTIES += \
     ro.soc.manufacturer=$(PRODUCT_MANUFACTURER) \

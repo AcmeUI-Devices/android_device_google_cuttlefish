@@ -38,23 +38,22 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_product.mk)
 #
 $(call inherit-product, device/google/cuttlefish/shared/phone/device_vendor.mk)
 
+# Inherit from the AcmeUI configuration.
+$(call inherit-product, vendor/acme/config/mobile.mk)
+
 # Nested virtualization support
 $(call inherit-product, packages/modules/Virtualization/apex/product_packages.mk)
 
 #
 # Special settings for the target
 #
-$(call inherit-product, device/google/cuttlefish/vsoc_x86_64/kernel.mk)
-$(call inherit-product, device/google/cuttlefish/vsoc_x86_64/bootloader.mk)
+$(call inherit-product, device/google/cuttlefish/vsoc_arm64/kernel.mk)
+$(call inherit-product, device/google/cuttlefish/vsoc_arm64/bootloader.mk)
 
-# Exclude features that are not available on AOSP devices.
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/aosp_excluded_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/aosp_excluded_hardware.xml
-
-PRODUCT_NAME := aosp_cf_x86_64_phone
-PRODUCT_DEVICE := vsoc_x86_64
+PRODUCT_NAME := acme_cf_arm64_phone
+PRODUCT_DEVICE := vsoc_arm64
 PRODUCT_MANUFACTURER := Google
-PRODUCT_MODEL := Cuttlefish x86_64 phone
+PRODUCT_MODEL := Cuttlefish arm64 phone
 
 PRODUCT_VENDOR_PROPERTIES += \
     ro.soc.manufacturer=$(PRODUCT_MANUFACTURER) \

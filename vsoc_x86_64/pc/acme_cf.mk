@@ -36,13 +36,16 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_product.mk)
 #
 $(call inherit-product, device/google/cuttlefish/shared/pc/device_vendor.mk)
 
+# Inherit from the AcmeUI configuration.
+$(call inherit-product, vendor/acme/config/mobile.mk)
+
 #
 # Special settings for the target
 #
 $(call inherit-product, device/google/cuttlefish/vsoc_x86_64/kernel.mk)
 $(call inherit-product, device/google/cuttlefish/vsoc_x86_64/bootloader.mk)
 
-PRODUCT_NAME := aosp_cf_x86_64_pc
+PRODUCT_NAME := acme_cf_x86_64_pc
 PRODUCT_DEVICE := vsoc_x86_64
 PRODUCT_MANUFACTURER := Google
 PRODUCT_MODEL := Cuttlefish x86_64 pc
